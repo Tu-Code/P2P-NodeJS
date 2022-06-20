@@ -37,7 +37,7 @@ app.get("/createuser", (req, res) => {
     });
 });
 
-app.get('/user', (req, res) => {
+app.post('/user', (req, res) => {
     // let post = { name: "Jake Smith", designation: "Chief Executive Officer" };
     let email = req.body.email;
     let password = req.body.password;
