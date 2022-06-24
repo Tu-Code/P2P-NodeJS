@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../views/head'); %>
+    <title>Transfer</title>
+    
+  </head>
+
+  <body>
+    <nav style='font-size: 1.2em; font-weight: 500;' class='navbar navbar-expand-lg navbar-light bg-light'>
+        <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbar'>
+            <span class='navbar-toggler-icon'></span>
+        </button>
+        <div class='collapse navbar-collapse' id='navbar'>
+            <div class='navbar-nav'>
+            
+                <a class='nav-item nav-link' id='login' href='/login'>Fund Account</a>
+                <a class='nav-item nav-link' id='signUp' href='/signup'>Transfer</a>
+
+            </div>
+        </div>
+    </nav>
+
+    <div class='container'>
+      <form method='POST' id="transferForm" action="/transferPost">
+        <div class="form-column">
+          <div class="form-group col-md-6">
+            <span>Balance : </span>
+            <span name='balance' id='balance'>
+              <%= balance %>
+            </span>
+          </div>
+    
+          <div class="form-group col-md-6">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" name='name' id="name" placeholder="Name" required>
+          </div>
+    
+          <div class="form-group col-md-6">
+            <label for="amount">Amount</label>
+            <input type="num" class="form-control" name='amount' id="amount" placeholder="Amount" required>
+          </div>
+    
+          <div class="form-group col-md-6">
+            <label for="user_choice">User Choice</label>
+            <select id='userNames' name='user_choice' class='form-control'>
+              <!-- {% if user_list %}
+                      {% for u in user_list %}
+                          {% if u.id != current_user.id %}
+                            <option value='{{u.id}}'>{{ u.email }}</option>
+                          {% endif %}
+                      {% endfor %}
+                  {% else %}  
+                  <option >None</option>  
+                  {% endif %} -->
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary">Transfer</button>
+    
+        </div>
+      </form>
+    </div>
+    
+    <%- include('../views/bottom'); %>
+  </body>
+</html>
